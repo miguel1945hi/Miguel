@@ -6,7 +6,7 @@ const GRID_SIZE = 15; //Defineo grid 15x15
   //Posição inicial do personagem 
 const INITIAL_SNAKE = [{x:7, y:7}];
   //Direção inicial do personagem (subindo)
-const [INITIAL_DIRECTION = {x:0, y:-1};
+const INITIAL_DIRECTION = [{x:0, y:-1}];
 export default function SnakeGame() {
   //Estado que guarda a posição de células do Snake 
  const [snake , setSnake] = useState(INITIAL_SNAKE);
@@ -18,10 +18,10 @@ export default function SnakeGame() {
  const moveInterval = useRef(null); 
   //função de movimento do Snake 
  function moveSnake(){
-   SetSnake(prev => {
+   setSnake(prev => {
     const newHead ={
-    x: prev[0] x + direction x,
-    y: prev[0] y + direction y, 
+    x: prev[0].x + direction.x,
+    y: prev[0].y + direction.y, 
     };
     //verifica se a cabeça bateu nas bordas
     //ou se bateu no próprio corpo 
