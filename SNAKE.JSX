@@ -32,6 +32,26 @@ export default function SnakeGame(){
            setIsGameOver(true);
            clearInterval(moveInterval.current);
            Alert.alert('Fim de jogo', 'Você bateu!')
-           return prev;
+           return prev; // Retorna o estado atual
        };
+      // criar uma nova array da cobrinha, com a nova cabeça na frente 
+      const newSnake = [newHead, ...prev];
+      // Remove o último elemento, para ela só crescer comendo 
+      newSnake.pop();
+      //Atualiza a cobrinha com a nova posição dela
+      return newSnake; 
+     });
+} 
 
+// Criar o loop do jogo principal
+useEffect (() => { 
+    moveInterval.current = setInterval(() => {
+        if( ! isGameOver) moveSnake(); // Move a snake
+    },200) //se move a cada 200ms
+
+    //limpar o intervalo se a direção mudar
+    return () => clearInterval(moveInterval.current); 
+}, [direction]);
+const renderCell = (x,y) => {
+//verifica se a posição é a mesma da cobrinha 
+ const issSnake = snake.some(cell =)
