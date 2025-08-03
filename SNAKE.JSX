@@ -54,4 +54,28 @@ useEffect (() => {
 }, [direction]);
 const renderCell = (x,y) => {
 //verifica se a posição é a mesma da cobrinha 
- const issSnake = snake.some(cell =)
+ const issSnake = snake.some(cell => cell.x === x && cell.y === y);
+
+return ( 
+ <View
+  key={'s$(x)-s${y}'}
+  style={[styles.cell, isSnake && styles.snake]}
+ />
+);
+};
+
+const renderGrid = () => {
+  let rows = [];
+  // Variavel condição incremento
+  for (let y = 0; y < GRID_SIZE; y++) {
+    let row = []; 
+   for (let x = 0; x < GRID_SIZE; x++) {
+     row.push(renderCell(x, y));
+   }
+   rows.push(
+     <View key={y} style={styles.row}>
+       {row}
+     </View>
+   );
+  }
+  return rows
